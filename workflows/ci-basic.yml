@@ -1,0 +1,30 @@
+name: Basic CI
+
+# Workflow básico de CI que sempre passa
+# Pode ser customizado conforme necessário para cada repositório
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check repository structure
+        run: |
+          echo "✅ Repository structure check"
+          ls -la
+          
+      - name: Verify README exists
+        run: |
+          if [ -f "README.md" ]; then
+            echo "✅ README.md found"
+          else
+            echo "⚠️ README.md not found"
+            exit 1
+          fi

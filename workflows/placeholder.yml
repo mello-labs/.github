@@ -1,0 +1,14 @@
+name: Placeholder CI
+
+# Workflow placeholder para evitar notificações de CI activity pendente
+# Este workflow pode ser removido quando workflows reais forem configurados
+
+on:
+  workflow_dispatch:  # Apenas execução manual, não automática
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "✅ CI placeholder - no checks configured yet"
